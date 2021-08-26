@@ -1,4 +1,4 @@
-<template>
+<tetplate>
 		<menuList title="map page"/>
 </template>
 
