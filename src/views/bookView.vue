@@ -6,8 +6,8 @@
 import menuList from '@/components/menuView.vue'
 
 export default {
-components: {
-	menuList
-		}
+	components: {
+		menuList
+	}
 }
 </script>

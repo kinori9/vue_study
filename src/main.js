@@ -11,6 +11,8 @@ new Vue({
   el: '#app',
   router,
   components: { App },
+	data: {
+		clicked: false
+	},
   template: '<App/>'
 })
-

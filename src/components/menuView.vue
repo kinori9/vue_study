@@ -1,9 +1,17 @@
 <template>
 	<div class="container">
-		<div class="top">
+		<div class="top"
+		v-bind:class="{'orginalMode': !clicked, 'darkmode':clicked}">
 			<h1>{{ title }}</h1>
+			<slot>
+		<!--darkmode -->
+		<button id="btn"
+		v-on:click="clicked = !clicked">theme chagne</button>
+
+			</slot>
 		</div>
-		<div class="bottom">
+		<div class="bottom"
+		v-bind:class="{'orginalMode': !clicked, 'darkmode':clicked}">
 			<ul>
 				<li v-for="item in items">
 					<router-link v-bind:to="`/${item.url}`">
@@ -17,34 +25,40 @@
 
 <script>
 //var menu = new Vue(
+var data = {
+	clicked : false,
+	items: [
+	{
+		menu: 'profile',
+		url: 'profileView'
+	},
+	{
+		menu: 'book',
+		url: 'bookView'
+	},
+	{
+		menu: 'map',
+		url: 'mapView'
+	},
+	{
+		menu: 'setting',
+		url: 'settingView'
+	},
+	]
+}
 export default {
 		props: ['title'],
-		data() {
-			return {
-				items: [
-				{
-					menu: 'profile',
-					url: 'profileView'
-				},
-				{
-					menu: 'book',
-					url: 'bookView'
-				},
-				{
-					menu: 'map',
-					url: 'mapView'
-				},
-				{
-					menu: 'setting',
-					url: 'settingView'
-				},
-			]
-			}
+		data: function (){
+			return data
 		}
-	}
+}
 </script>
 
 <style scoped>
+h1 {
+	margin: 0px;
+	padding-top: 12px;
+}
 a {
 	text-decoration:none;
 	color:gray;
@@ -60,6 +74,11 @@ li {
 	width: 25%;
 }
 
+.darkmode {
+	background-color: black;
+	color: white;
+}
+
 .container {
 	width: 100%;
 	height: 100%;
@@ -71,5 +90,8 @@ li {
 .bottom {
 	width: 100%;
 	height: 10%;
+}
+#btn {
+	float: right;
 }
 </style>

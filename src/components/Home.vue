@@ -28,8 +28,9 @@ export default {
 	width: 100%;
 	height: 100%;
 }
-h1, h2 {
+h1{
   font-weight: normal;
+	margin: 0px;
 }
 ul {
   list-style-type: none;
